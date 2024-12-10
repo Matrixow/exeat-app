@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/exeats.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <title>Given Exeats</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <ul>
+                    <li><a href="../pages/home.html">Home page</a></li>
+                    <li id="left_side_on_nav">Account</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <h1 id="bait"></h1>
+
+    <div class="content">
+    <div class="current_exeats">
+        <div class="filters">
+            <h3>Filters:</h3>
+        <div class="filter">
+            <label for="active">Active: <span><input type="checkbox" name="active" id="active"></span></label> <br>
+            <label for="expired">Expired: <span><input type="checkbox" name="expired" id="expired"></span></label> <br>
+            <label for="past">Past: <span><input type="checkbox" name="past" id="past"></span></label> <br>
+        </div>
+        <div class="dropdown">
+            <label for="dropdown-toggle" id="select_house">Select House<span class="material-symbols-outlined" id="arrow">keyboard_arrow_down</span></label>
+    
+            <ul class="dropdown-options">
+                <li>
+                    <input type="checkbox" name="house" value="St Peter"> St. Peter
+                </li>
+                <li>
+                    <input type="checkbox" name="house" value="St Joseph"> St. Joseph
+                </li>
+                <li>
+                    <input type="checkbox" name="house" value="St Mathew"> St. Mathew
+                </li>
+                <li>
+                    <input type="checkbox" name="house" value="St Mark"> St. Mark
+                </li>
+                <li>
+                    <input type="checkbox" name="house" value="St Philip"> St. Philip
+                </li>
+                <li>
+                    <input type="checkbox" name="house" value="St Luke"> St. Luke
+                </li>
+                <li>
+                    <input type="checkbox" name="house" value="St James"> St. James
+                </li>
+                <!-- Add more houses as needed -->
+            </ul>
+        </div>
+
+        <div class="filter">
+            <label for="schoolNumberPattern">School Number Pattern:</label><br>
+            <input type="checkbox" name="schoolNumberPattern" value="CA"> CA <br>
+            <input type="checkbox" name="schoolNumberPattern" value="CB"> CB <br>
+            <input type="checkbox" name="schoolNumberPattern" value="CD"> CD <br>
+        </div>
+
+    </div>
+
+       <div class="center-div">
+        <input type="text" id="searchInput" placeholder="Search students...">
+        <button id="searchButton"><img id="search" src="../images/search_button.svg" alt=""></button>
+       </div>
+
+
+        <div class="total_exeats">
+            <p id="total">Total exeats:</p>
+        </div>
+
+
+        <div class="given_exeats">
+            <p>Exeats given</p>
+        </div>
+        <img src="" id="loading_gif" alt="">
+        <button id="get_exeats" >Get exeats</button>
+ 
+    </div>
+
+    </div>
+
+    <script src="../scripts/exeats.js"></script>
+</body>
+</html>

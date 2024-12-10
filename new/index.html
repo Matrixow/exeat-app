@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Exeat Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/pages/home.html"><img src="/images/styles.png" id="logo" alt="School Logo"></a>
+        <ul>
+            <li id="left_side_on_nav">Ernest Ampem</li>
+        </ul>
+    </nav>
+    <div class="content">
+        <div class="current_exeats">
+            <h1>Exeat</h1>
+            <form action="http://localhost:5000/owass-robotech/us-central1/app/give" method="post" id="form">
+                <label for="studentName">Student name:</label>
+                <input type="text" id="student_name" name="student_name" required>
+
+                <label for="schoolNumber">School Number:</label>
+                <input type="text" id="sch_number" name="school_number" required>
+
+                <select name="house_name" id="student_house" required>
+                    <option selected>Select student's house</option>
+                    <option value="St Peters">St Peters</option>
+                    <option value="St Joseph">St Joseph</option>
+                    <option value="St Paul">St Paul</option>
+                    <option value="St James">St James</option>
+                    <option value="St Mathew">St Mathew</option>
+                    <option value="St Mark">St Mark</option>
+                    <option value="St John">St John</option>
+                    <option value="St Thomas">St Thomas</option>
+                    <option value="St Andrew">St Andrew</option>
+                    <option value="St Luke">St Luke</option>
+                </select> <br>
+                <label for="parent_contact">Parent's contact</label>
+                <input type="tel" id="contact" name="parent_contact" maxlength="10" required>
+
+                <label for="reason">Reason for exeat:</label>
+                <textarea id="exreason" name="reason" cols="10" rows="5" required></textarea>
+
+                <label for="date">Date:</label>
+                <input type="date" id="return_date" name="return_date" required>
+                <input name="given_by" id="hidden">
+                <button id="upload">Upload Exeat</button>
+                <img src="" id="loading_img" alt="">
+            </form>
+        </div>
+    </div>
+    <footer id="foot">
+        <p>© 2024 Owassrobotech</p>
+        <p id="logout">Logout</p>
+        <p>The school</p>
+    </footer>
+<script src="../scripts/give.js"></script>
+</body>
+</html>

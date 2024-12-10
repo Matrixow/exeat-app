@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exeat Login Page</title>
+    <link rel="stylesheet" href="../styles/loginstyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo">
+                <img src="../images/styles.png" alt="School Logo">
+            </div>
+            <h2>Log-in to Exeat Web</h2>
+            <form>
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div class="forgot-password">
+                    <a href="#" id="fgpass">Forgot password?</a>
+                </div>
+                
+                <div class="row">
+                    <img id="loading" class="loading" src="../images/image.png"></img>
+                  </div>
+
+                <button type="submit" id="login">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../scripts/login.js"></script>
+</body>
+</html>

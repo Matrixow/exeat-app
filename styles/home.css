@@ -1,0 +1,147 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0000FF; /* Dark blue background */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #FFFFFF; /* White background for navbar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    height: 50px;
+}
+
+.badge{
+    border-radius: 50%;
+}
+
+.logout {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container {
+    text-align: center;
+    color: #FFFFFF;
+    position: relative;
+    padding: 20px;
+}
+
+.background-overlay {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.welcome-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    height:100%;
+}
+
+.welcome-message .badge {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.welcome-message h1 {
+    margin: 10px 0;
+    font-size: 1.8em;
+}
+
+.welcome-message p {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+.buttons {
+    background-color: #FFFFFF;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttons h2 {
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.btn {
+    background-color: #FFD700; /* Gold color */
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    font-size: 16px;
+    color: #000000;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    display: block;
+}
+
+.btn:hover {
+    background-color: #FFA500; /* Darker gold on hover */
+}
+
+.footer {
+    background-color: #FFFFFF;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .welcome-message h1 {
+        font-size: 1.5em;
+    }
+
+    .welcome-message p {
+        font-size: 1em;
+    }
+
+    .buttons {
+        width: 85%;
+        margin-right: 55%;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
+
+    .badge{
+        border-radius: 50%;
+    }
+}

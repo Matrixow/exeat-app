@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+nav .navbar{
+    position: fixed;
+    top: 0;
+    height: auto;
+    width: 100%;
+    background-image: linear-gradient((red, blue));
+    background-color: rgb(80, 75, 206);
+    z-index: 10;
+}
+
+.navbar ul{
+    padding: 2%;
+}
+.navbar ul li{
+    display: inline;
+    margin-left:6%;
+    color: #f1f1f1;
+
+
+}
+
+#left_side_on_nav{
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+#bait{
+    margin-bottom: 7%;
+}
+
+#intro{
+    /* margin-top: 50%; */
+    font-size: x-large;
+    text-align: center;
+    margin: 3%;
+    color: rgb(60, 60, 168);
+}
+
+.content_container{
+    width: 90%;
+    height: 100%;
+    margin: 4% 0% 15% 5%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.content{
+    position: relative;
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: 50%;
+    height: auto;
+    background-color: #f1f1f1;
+    padding: 3% 5% 2% 1%;
+    border-top-left-radius: 10%;
+    border-top-right-radius:10%;
+    overflow: hidden;
+    
+}
+
+input{
+    width: 90%;
+    padding: 5%;
+    border: 0.3px solid #f1f1f1;
+    border-radius: 10%;
+    margin-left: 10%;
+    margin-top: 4%;
+    margin-bottom: 20%;
+}
+
+#login{
+    
+    margin:8% 0% 0% 50%;
+    padding: 8%;
+    border: none;
+    background: dodgerblue;
+    color: whitesmoke;
+    border-radius: 10%;
+    transition: padding 1s;
+
+}
+
+#loading{
+    width: 70%;
+    margin-left: 10%;
+    height: 10%;
+}
+
+#login:hover{
+    padding: 10%;
+}
+
+select{
+    position: relative;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    width: 100%;
+    margin-bottom: 15%;
+    margin-left: 10%;
+    margin-top: 3%;
+    border-radius: 4%;
+
+}
+
+label{
+    font-family: "Roboto Condensed", sans-serif;
+    color: rgb(81, 80, 80);
+}
+
+
+footer .footer{
+    background-image: linear-gradient(to right, rgb(39, 48, 216), dodgerblue);
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 3%;
+}   
+
+.footer ul li{
+    padding: 1%;
+    display: inline;
+    color: #f1f1f1;
+    font-family: roboto;
+}
+
+@media screen and  (max-width:400px){
+
+    .navbar ul{
+        padding: 5%;
+    }
+
+    #intro{
+        margin-bottom: 8%;
+    }
+
+    .content{
+        width:85%;
+        margin-left: 0%;
+    }
+
+    input{
+        width: 80%;
+    }
+
+    #login{
+        margin-bottom: 10%;
+        margin-left: 40%;
+    }
+
+
+    footer .footer{
+        font-size: small;
+        font-weight: 90%;
+        padding: 6%;
+    }
+
+    label{
+        font-size: large;
+    }
+
+
+#bait{
+    margin-bottom: 20%;
+}
+}

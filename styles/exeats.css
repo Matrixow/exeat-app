@@ -1,0 +1,377 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: roboto;
+}
+
+body{
+    background-color: #007bff;
+}
+
+nav .navbar{
+    position: fixed;
+    top: 0;
+    height: auto;
+    width: 100%;
+    background-image: linear-gradient((red, blue));
+    background-color: rgb(80, 75, 206);
+    z-index: 10;
+}
+
+.navbar ul{
+    padding: 2%;
+}
+.navbar ul li{
+    display: inline;
+    margin-left:6%;
+    color: #f1f1f1;
+
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+
+#left_side_on_nav{
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+#bait{
+    margin-bottom: 7%;
+}
+
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.current_exeats{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: white;
+    border-radius: 5%;
+    width: 60%;
+    height: auto;
+    overflow: none;
+    box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.1), /* Top shadow layer */
+    0 4px 8px rgba(0, 0, 0, 0.2), /* Middle shadow layer */
+    0 8px 16px rgba(0, 0, 0, 0.3); /* Bottom shadow layer */
+
+}
+
+.total_exeats{
+    background: white;
+}
+
+.given_exeats {
+    background-color: #ffd700; /* Warm yellow background */
+    font-size: -large;
+    font-family: roboto;
+    color: black;
+    margin-top: 0%;
+    padding: 2%;
+}
+
+/* Styles for the search input and button */
+.center-div #searchInput {
+    width: 80%;
+    padding: 2%;
+    border: 1px solid #ccc;
+    border-top-left-radius: 4px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.12);
+    transition: border-color 0.3s;
+}
+
+.center-div #searchInput:focus {
+    border-color: #007bff;
+}
+
+.center-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.center-div #searchButton, #searcButton img {
+    width: 20%;
+    padding: 1.5%;
+    border: none;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.center-div #searchButton:hover{
+    background-color: #0056b3;
+}
+
+#searchButton img #search:hover{
+    fill: grey;
+}
+
+.center-div #searchButton:active {
+    background-color: #004085;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) inset;
+}
+
+.total_exeats #total{
+    font-size: x-large;
+    font-weight: bold;
+    font-family: roboto;
+    text-align: center;
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 200px; /* Set the width of the dropdown container */
+}
+
+/* Label Style */
+.dropdown label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Dropdown Options */
+.dropdown select {
+    width: 100%; /* Set the width of the select element to fill the container */
+    padding: 8px; /* Adjust padding as needed */
+    font-size: 14px; /* Adjust font size as needed */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button #get_exeats{
+    color: white;
+    background: #007bff;
+}
+
+.dropdown select:hover, #get_exeats{
+    padding: 5%;
+}
+
+/* Dropdown Options - List Item */
+.dropdown-options li {
+    list-style-type: none;
+    margin-bottom: 5px;
+}
+
+#arrow:hover {
+    transform: rotate(-90deg); /* Rotate the text counter-clockwise by 90 degrees on hover */
+}
+
+
+
+#get_exeats{
+    width: 40%;
+    height: 20%;
+    margin-left:30% ;
+    padding: 3%;
+    border: none;
+    border-radius: 5%;
+    background: #007bff;
+    color:white;
+    font-weight: bold;
+    font-size: medium;
+    transition: padding 0.3s;
+}
+
+#get_exeats:hover{
+    padding: 5%;
+}
+
+#loading_gif{
+    width: 10%;
+    height: 10%;
+    margin-left:43% ;
+    padding: 3%;
+}
+
+/* List Item Styles */
+.given_exeats ul{
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    margin-bottom: 10%;
+    border: 0.5px solid whitesmoke;
+    background: whitesmoke;
+    padding-top: 4%;
+    border-radius: 10px;
+}
+
+.given_exeats li {
+    background-color: #fff; /* Background color for list items */
+    margin-bottom: 0.1%;
+    padding: 15px; /* Padding inside list items */
+    border-radius: 8px; /* Rounded corners for list items */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+/* Hover effect */
+.given_exeats li:hover {
+    background-color: #f0f0f0; /* Background color change on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+
+.given_exeats p{
+    font-size: x-large;
+}
+
+#modify_button, #view_more_button{
+    padding: 2%;
+    /* font-size: large; */
+}
+#view_more_button{
+    float: right;
+    
+}
+
+
+
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Label Style */
+.dropdown label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Dropdown Options */
+.dropdown-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1;
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+/* Dropdown Options - Show on Hover */
+.dropdown:hover .dropdown-options {
+    display: block;
+}
+
+/* Dropdown Options - List Item */
+.dropdown-options li {
+    margin-bottom: 5px;
+}
+
+/* Checkbox Style */
+.dropdown-options input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.dropdown{
+    margin-bottom: 5%;
+}
+
+
+.filters{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f1f1;
+}
+
+.filters .filter{
+    margin: 5%;
+}
+
+#mdb{
+    float: left;
+}
+
+#vmb{
+    float: right;
+}
+
+#modify_button, #vmb{
+    padding: 4%;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    margin-top: 1%;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+
+}
+
+
+
+@media screen and (max-width:600px){
+    .current_exeats{
+        width: 90%;
+        height: 100%;
+        margin: auto;
+        margin-top: 20%;
+    }
+
+    h3{
+        font-size: medium;
+        margin-bottom: 28%;
+    }
+
+    .given_exeats ul{
+        
+        background: #ededed;
+        margin: 3%;
+        margin-bottom: 7%;
+        text-decoration: none;
+        border-radius: 2;
+        color: rgb(80, 75, 206);
+    }
+
+    .given_exeats ul li{
+        font-size: medium;
+    }
+
+    
+    @media (max-width: 768px) {
+        .navbar ul {
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .navbar ul li {
+            margin: 10px 0;
+        }
+    }
+    
+    
+
+    #get_exeats{
+        margin-left: 20%;
+    }
+}
+
+
+/* rgb(32, 31, 58)

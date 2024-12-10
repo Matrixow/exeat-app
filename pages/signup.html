@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/signup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <title id="title">Exeat Signup page</title>
+</head>
+<body>
+    
+<header>
+    <nav>
+        <div class="navbar">
+            <ul>
+                <a href="../pages/home.html">Home page</a>
+                <li id="left_side_on_nav">Account</li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<h1 id="bait"></h1>
+
+<div class="intro-container">
+    <h1 id="intro">EXEAT SIGNUP PAGE</h1>
+</div>
+
+<div class="content_container">
+    <div class="content">
+        <form action="http://localhost:5000/owass-robotech/us-central1/app/signup" method="post">
+            <h1>Create Account</h1>
+            <select name="account_type" id="account_type" required>
+            <option selected>Select account type</option>
+            <option value="Security">Security</option>
+            <option value="Housemaster">Housemaster</option>
+            <option value="Admin">Admin</option>
+            <option value="SOS">SOS</option>
+            </select><br>
+
+            <label for="email">Username: </label><br>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label><br>
+            <input type="password" id="user_password" name="user_password" required> <br>
+            <button type="submit" id="login">Create Account</button>
+
+        </form>
+    </div>
+
+
+<script src="../scripts/signup.js"></script>
+</body>
+</html>
