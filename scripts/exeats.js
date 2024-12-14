@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let exeatData = [];
 
-    // Fetch data from the server
+    // geting the exeats from the server
     function get_exeats() {
         loading_gif.setAttribute("src", "../images/loading2.gif");
         fetch("http://localhost:5000/owass-robotech/us-central1/app/")
@@ -37,10 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 return res.json();
             })
             .then(data => {
-                exeatData = data; // Store data locally
+                exeatData = data;
                 loading_gif.setAttribute("src", "../images/done.svg");
                 total.innerHTML = `Total exeats: ${exeatData.length}`
-                applyFilters(); // Apply filters to the data
+                applyFilters(); 
             })
             .catch(err => {
                 console.log("An error occurred: " + err);
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    // Apply filters to the data
+    // filtering the data
     function applyFilters() {
         const active = filters.active.checked;
         const expired = filters.expired.checked;
@@ -63,17 +63,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let filteredData = exeatData;
 
-        // Apply house filters
+        // house filters
         if (selectedHouses.length > 0) {
             filteredData = filteredData.filter(exeat => selectedHouses.includes(exeat.housename));
         }
 
-        // Apply school number pattern filter
+        //  school number pattern filter
         if (selectedPatterns.length > 0) {
             filteredData = filteredData.filter(exeat => selectedPatterns.some(pattern => exeat.schoolnumber.startsWith(pattern)));
         }
 
-        // Apply status filters
+        //  status filters
         const today = new Date().toISOString().split('T')[0];
         if (active) {
             filteredData = filteredData.filter(exeat => exeat.exeat_expiry_date >= today && !exeat.hasreturned);
@@ -98,10 +98,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = searchInput.value.toLowerCase();
     
         const results = exeatData.filter(exeat => {
-            // Create an array of values for each exeat object
+            /
             const valuesArray = Object.values(exeat).map(value => (typeof value === 'string') ? value.toLowerCase() : value);
     
-            // Check if any value includes the search query
+            
             return valuesArray.some(value => {
                 if (typeof value === 'string' && value.includes(query)) {
                     return true;
@@ -142,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Render exeat data to the DOM
     function renderExeats(data) {
         exeat_tab.innerHTML = '';
         data.forEach(exeat => {
@@ -161,13 +160,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-            // Creating the buttons
+            //   buttons
             view_more.setAttribute("id", "view_more_button");
             view_more.setAttribute("id", "vmb")
             view_more.textContent = "View more";
             modify_button.setAttribute("id", "modify_button");
             modify_button.textContent = 'Modify exeat';
-            modify_button.setAttribute('data-id', exeat.id);  // Add the document ID here
+            modify_button.setAttribute('data-id', exeat.id); 
 
             studentname.textContent = `Studentname: ${exeat['studentname']}`;
             schoolnumber.textContent = `Schoolnumber: ${exeat['schoolnumber']}`;
