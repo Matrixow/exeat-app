@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let exeatData = [];
 
-    // geting the exeats from the server
+
     function get_exeats() {
         loading_gif.setAttribute("src", "../images/loading2.gif");
         fetch("http://localhost:5000/owass-robotech/us-central1/app/")
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    // filtering the data
+
     function applyFilters() {
         const active = filters.active.checked;
         const expired = filters.expired.checked;
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (selectedHouses.length > 0) {
             filteredData = filteredData.filter(exeat => selectedHouses.includes(exeat.housename));
         }
-
+        // year group whether CA CB CD etc
         if (selectyeargroups.length>0){
             filteredData = filteredData.filter(exeat=> {
                 try{
@@ -95,25 +95,30 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(filteredData)
         }
 
-        // if (selectedPatterns.length > 0) {
-        //     filteredData = filteredData.filter(exeat => selectedPatterns.some(pattern => exeat.schoolnumber.startsWith(pattern)));
-        // }
-
-        //  school number pattern filter
-        if (selectedPatterns.length > 0) {
-            filteredData = filteredData.filter(exeat => selectedPatterns.some(pattern => exeat.schoolnumber.startsWith(pattern)));
-        }
 
         //  status filters
-        const today = new Date().toISOString().split('T')[0];
+        const today = new Date(new Date().toISOString().split('T')[0]);
         if (active) {
-            filteredData = filteredData.filter(exeat => exeat.exeat_expiry_date >= today && !exeat.hasreturned);
+            filteredData = filteredData.filter(exeat => {
+                let pastdatestr = exeat.exeat_expiry_date;
+                let pastdate = new Date(pastdatestr);
+                return pastdate >= today && exeat.has_returned==="No"
+            });
         }
         if (expired) {
-            filteredData = filteredData.filter(exeat => exeat.exeat_expiry_date < today && !exeat.hasreturned);
+            filteredData = filteredData.filter(exeat => {
+                let pastdatestr = exeat.exeat_expiry_date;
+                let pastdate = new Date(pastdatestr);
+                return today > pastdate && exeat.has_returned=="No"
+            });
         }
         if (past) {
-            filteredData = filteredData.filter(exeat => exeat.exeat_expiry_date < today && exeat.hasreturned);
+            filteredData = filteredData.filter(exeat => {
+                let pastdatestr = exeat.exeat_expiry_date;
+                let pastdate = new Date(pastdatestr);
+                return (today > pastdate);
+
+            });
         }
 
         renderExeats(filteredData);
@@ -130,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         const results = exeatData.filter(exeat => {
             
-            /
+            
             const valuesArray = Object.values(exeat).map(value => (typeof value === 'string') ? value.toLowerCase() : value);
     
           
