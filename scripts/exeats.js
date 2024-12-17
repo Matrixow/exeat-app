@@ -77,7 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // house filters
         if (selectedHouses.length > 0) {
-            filteredData = filteredData.filter(exeat => selectedHouses.includes(exeat.housename));
+            filteredData = filteredData.filter(exeat => {
+                return selectedHouses.includes(exeat.housename)
+            });
         }
         // year group whether CA CB CD etc
         if (selectyeargroups.length>0){
