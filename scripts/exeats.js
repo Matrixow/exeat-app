@@ -21,8 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
         active: document.querySelector('#active'),
         expired: document.querySelector('#expired'),
         past: document.querySelector('#past'),
-        schoolNumberPattern: document.querySelectorAll('input[name="schoolNumberPattern"]')
+        //schoolNumberPattern: document.querySelectorAll('input[name="schoolNumberPattern"]')
     };
+
+    const yeargroup = {
+        CA: document.querySelector("#CA"),
+        CB: document.querySelector("#CB"),
+        CD: document.querySelector("#CD")
+    }
 
     let exeatData = [];
 
@@ -38,8 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .then(data => {
                 exeatData = data;
+                exeatData = data; 
                 loading_gif.setAttribute("src", "../images/done.svg");
                 total.innerHTML = `Total exeats: ${exeatData.length}`
+                applyFilters(); 
                 applyFilters(); 
             })
             .catch(err => {
@@ -57,16 +65,39 @@ document.addEventListener('DOMContentLoaded', () => {
             .filter(checkbox => checkbox.checked)
             .map(checkbox => checkbox.value);
 
-        const selectedPatterns = Array.from(filters.schoolNumberPattern)
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => checkbox.value);
+        // const selectedPatterns = Array.from(filters.schoolNumberPattern)
+        //     .filter(checkbox => checkbox.checked)
+        //     .map(checkbox => checkbox.value);
 
+        const selectyeargroups = Object.values(yeargroup) 
+        .filter(checkbox => checkbox.checked) 
+        .map(checkbox => checkbox.value);     
+        
         let filteredData = exeatData;
 
         // house filters
         if (selectedHouses.length > 0) {
             filteredData = filteredData.filter(exeat => selectedHouses.includes(exeat.housename));
         }
+
+        if (selectyeargroups.length>0){
+            filteredData = filteredData.filter(exeat=> {
+                try{
+                    let str = exeat.schoolnumber
+                    let pattern = str.split(" ")
+                    return selectyeargroups.includes(pattern[0])
+
+                }catch(error){
+                    return
+                }
+                
+            })
+            console.log(filteredData)
+        }
+
+        // if (selectedPatterns.length > 0) {
+        //     filteredData = filteredData.filter(exeat => selectedPatterns.some(pattern => exeat.schoolnumber.startsWith(pattern)));
+        // }
 
         //  school number pattern filter
         if (selectedPatterns.length > 0) {
@@ -98,9 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const query = searchInput.value.toLowerCase();
     
         const results = exeatData.filter(exeat => {
+            
             /
             const valuesArray = Object.values(exeat).map(value => (typeof value === 'string') ? value.toLowerCase() : value);
     
+          
             
             return valuesArray.some(value => {
                 if (typeof value === 'string' && value.includes(query)) {
@@ -183,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
             items.forEach(item => list.appendChild(item));
             hiddens.forEach(item => item.style.display = 'none');
 
-            // Event listeners
+
             view_more.addEventListener("click", event => {
                 hiddens.forEach(item => {
                     if (item.style.display == 'none') {
@@ -209,17 +242,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Event listeners for filters
+
     checkboxOptions.forEach(checkbox => {
         checkbox.addEventListener('change', applyFilters);
     });
-    filters.schoolNumberPattern.forEach(checkbox => {
-        checkbox.addEventListener('change', applyFilters);
-    });
+    // filters.schoolNumberPattern.forEach(checkbox => {
+    //     checkbox.addEventListener('change', applyFilters);
+    // });
     filters.active.addEventListener('change', applyFilters);
     filters.expired.addEventListener('change', applyFilters);
     filters.past.addEventListener('change', applyFilters);
 
+    yeargroup.CA.addEventListener("change", applyFilters)
+    yeargroup.CB.addEventListener("change", applyFilters)
+    yeargroup.CD.addEventListener("change", applyFilters)
     // dropdownToggle.addEventListener('click', function () {
     //     dropdownOptions.classList.toggle('show');
     // });
