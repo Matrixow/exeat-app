@@ -134,26 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     
         const query = searchInput.value.toLowerCase();
-        // const results = exeatData.filter(exeat => {
-        // const valuesArray = Object.values(exeat).map(value => (typeof value === 'string') ? value.toLowerCase() : value);
-        // console.log(exeatData)
-    
-        //     return valuesArray.some(value => {
-        //         if (typeof value === 'string' && value.includes(query)) {
-        //             return true;
-        //         }
-        //         return false;
-        //     });
-        // });
-    
-        // if (results.length > 0) {
-        //     renderExeats(results);
-        // } else {
-        //     exeat_tab.innerHTML = '<li>No results found</li>';
-        // }
-        console.log(query)
+
         const results = exeatData.filter(exeat=>exeat.studentname.toLowerCase().includes(query))
-        console.log(results)
         if (results.length > 0) {
                 renderExeats(results);
             } else {
