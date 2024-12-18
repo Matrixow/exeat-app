@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function get_exeats() {
         loading_gif.setAttribute("src", "../images/loading2.gif");
-        fetch("http://localhost:5000/owass-robotech/us-central1/app/")
+        fetch("https://exapp-ten.vercel.app")
             .then(res => {
                 if (!res.ok) {
                     throw new Error("Response was not ok");
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const docId = event.target.getAttribute("data-id");
 
-        fetch(`http://localhost:5000/owass-robotech/us-central1/app/modify`, {
+        fetch(`https://exapp-ten.vercel.app/`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

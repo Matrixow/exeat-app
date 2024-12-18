@@ -22,7 +22,7 @@ function create_new_user(event) {
 
     console.log([username.value, account_type.value, password.value]);
 
-    fetch("http://localhost:5000/owass-robotech/us-central1/app/signup", {
+    fetch("https://exapp-ten.vercel.app/signup", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

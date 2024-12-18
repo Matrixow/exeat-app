@@ -39,7 +39,7 @@ function give_exeat(event){
     }
     loading_img.setAttribute("src", "../images/laoding.gif")
     try{
-    fetch("http://localhost:5000/owass-robotech/us-central1/app/give",{
+    fetch("https://exapp-ten.vercel.app/give",{
         method:'POST',
         headers: {
             'Content-Type': 'application/json'

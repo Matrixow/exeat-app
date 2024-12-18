@@ -19,7 +19,7 @@ function login(event) {
         return;
     }
 
-    fetch("http://localhost:5000/owass-robotech/us-central1/app/login", {
+    fetch("https://exapp-ten.vercel.app/login", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -51,6 +51,7 @@ function login(event) {
         loading_gif.classList.remove("spin")
         loading_gif.setAttribute("src", "../images/error.png")
         alert('An error occurred:' + error);
+        console.log(error)
     });
 }
 
