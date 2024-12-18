@@ -62,7 +62,7 @@ function give_exeat(event){
         loading_img.setAttribute("src", "../images/error.png")
 
     }).then(data=>{
-        loading_img.setAttribute("src", "../images/done.jpeg")
+        loading_img.setAttribute("src", "../images/done.svg")
         console.log('done');
         
     })
