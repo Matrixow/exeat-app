@@ -4,9 +4,9 @@ function check_session(){
     }
 }
 
-document.querySelector("#hidden").value = localStorage.getItem("user_name")
+document.querySelector("#left_side_on_nav").textContent = localStorage.getItem("user_name")
 
-console.log(document.querySelector("#hidden"));
+console.log(document.querySelector("#left_side_on_nav"));
 
 let account_name = document.querySelector("#left_side_on_nav").textContent
 account_name.textContent = localStorage.getItem("user_name")
