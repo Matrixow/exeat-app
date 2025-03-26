@@ -33,12 +33,21 @@ document.addEventListener('DOMContentLoaded', () => {
     let exeatData = [];
 
 
+    
+
     function get_exeats() {
+        let token = localStorage.getItem("token")
         loading_gif.setAttribute("src", "../images/loading2.gif");
-        fetch("https://exapp-ten.vercel.app")
+        fetch("https://exapp-ten.vercel.app/exeats", {
+            headers: {
+                Authorization: `BEARER ${token}`
+            }
+        })
             .then(res => {
+                console.log(res.status)
                 if (!res.ok) {
-                    throw new Error("Response was not ok");
+                    
+                    window.location.href = "/pages/login.html"
                 }
                 return res.json();
             })
@@ -151,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const docId = event.target.getAttribute("data-id");
 
-        fetch(`https://exapp-ten.vercel.app/`, {
+        fetch(`http://localhost:4040/`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

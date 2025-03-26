@@ -21,11 +21,12 @@ function create_new_user(event) {
     }
 
     console.log([username.value, account_type.value, password.value]);
-
+    let token = localStorage.getItem("token")
     fetch("https://exapp-ten.vercel.app/signup", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
+            Authorization: `BEARER ${token}`
         },
         body: JSON.stringify({
             account_type: account_type.value,
@@ -36,9 +37,8 @@ function create_new_user(event) {
     .then(response => {
 
         if (!response.ok) {
-            return response.json().then(errorData => {
-                throw new Error(errorData.message || "An unknown error occurred");
-            });
+            window.location.href = "/pages/login.html"
+            
         }
         return response.json(); 
     })

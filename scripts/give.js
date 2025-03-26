@@ -39,9 +39,11 @@ function give_exeat(event){
     }
     loading_img.setAttribute("src", "../images/laoding.gif")
     try{
+    let token = localStorage.getItem("token")
     fetch("https://exapp-ten.vercel.app/give",{
         method:'POST',
         headers: {
+            Authorization: `BEARER ${token}`,
             'Content-Type': 'application/json'
         },
 
@@ -58,6 +60,9 @@ function give_exeat(event){
     }).then(res=>{
         if(res.ok){
             return res.json()
+        }
+        else{
+            window.location.href = "/pages/login.html"
         }
         loading_img.setAttribute("src", "../images/error.png")
 

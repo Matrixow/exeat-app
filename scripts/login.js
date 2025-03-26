@@ -24,6 +24,7 @@ function login(event) {
         headers: {
             'Content-Type': 'application/json'
         },
+        credentials: 'include',
         body: JSON.stringify({
             username: username.value,
             user_password: password.value
@@ -34,7 +35,7 @@ function login(event) {
         if (res.ok) {
             return res.json();
         } else {
-
+            
             return res.json().then(error => { throw new Error(error.message) });
         }
     })
@@ -43,7 +44,9 @@ function login(event) {
           console.log(data.acc_type)
           localStorage.setItem("access", true)
           localStorage.setItem("account_type", data.acc_type);
-          localStorage.setItem("user_name", data.user_name)
+          localStorage.setItem("user_name", data.user_name);
+          localStorage.setItem("token", data.token)
+          console.log(data.token)
           window.location.href = data.redirect_page
         }
     })
