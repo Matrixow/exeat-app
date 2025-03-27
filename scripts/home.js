@@ -2,6 +2,9 @@ let existing = document.querySelector("#existing")
 let give = document.querySelector("#give")
 let add = document.querySelector("#signup")
 let logout = document.querySelector(".logout")
+let year = document.querySelector("#year")
+const thisYear = new Date().getFullYear()
+year.textContent = `© ${thisYear} OWASSROBOTECH. All Rights Reserved`
 
 window.onload = () => {
     if (!localStorage.getItem("access")) {

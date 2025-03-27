@@ -1,3 +1,7 @@
+let year = document.querySelector("#year")
+const thisYear = new Date().getFullYear()
+year.textContent = `© ${thisYear} OWASSROBOTECH.`
+
 function check_session(){
     if(!localStorage.getItem("access")){
         window.location.href = "../pages/login.html"

@@ -45,6 +45,7 @@ function create_new_user(event) {
     .then(data => {
         alert(data.message || "User created successfully!");
         console.log("Response Data:", data);
+        window.location.reload()
     })
     .catch(error => {
         console.error("Error:", error);
