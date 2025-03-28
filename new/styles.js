@@ -30,6 +30,9 @@ let reason = document.querySelector("#exreason");
 let returndate = document.querySelector("#return_date");
 let submitter = document.querySelector("#upload");
 let loading_img= document.querySelector("#loading_img")
+let message_box = document.querySelector(".message-box")
+let message_content = document.querySelector("#message-content")
+
 
 
 function give_exeat(event){
@@ -59,9 +62,18 @@ function give_exeat(event){
             return res.json().then(err => { throw new Error(err.message); });
         }
     }).then(data => {
-        alert(data.message);
+        message_box.style.display = "block"
+        message_content.innerHTML = data.message;
+        setTimeout(()=>{
+            message_box.style.display = "none"
+    }, 4000)
     }).catch(error => {
-        alert(error.message);
+        
+        message_box.style.display = "block"
+        message_content.innerHTML = data.message;
+        setTimeout(()=>{
+            message_box.style.display = "none"
+    }, 4000)
     });
 }
 

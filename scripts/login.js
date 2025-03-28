@@ -6,6 +6,9 @@ let forgot = document.querySelector("#fgpass")
 let loadingDiv = document.getElementById('loading');
 window.onload = localStorage.clear()
 window.onload = loadingDiv.style.display = 'none'
+let message_box = document.querySelector(".message-box")
+let message_content = document.querySelector("#message-content")
+
 
 forgot.addEventListener("click", event=>{alert("See an admin to change your password")})
 
@@ -53,7 +56,12 @@ function login(event) {
     .catch(error => {
         loading_gif.classList.remove("spin")
         loading_gif.setAttribute("src", "../images/error.png")
-        alert('An error occurred:' + error);
+        message_box.style.display = "block"
+        message_box.style.background = 'red'
+        message_content.innerHTML = error
+        setTimeout(()=>{
+            message_box.style.display = "none"
+        }, 4000)
         console.log(error)
     });
 }

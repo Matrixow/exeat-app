@@ -2,6 +2,9 @@ let account_type = document.querySelector("#account_type");
 let username = document.querySelector("#username");
 let password = document.querySelector("#user_password");
 let button = document.querySelector("#login");
+let message_box = document.querySelector(".message-box")
+let message_content = document.querySelector("#message-content")
+
 
 window.onload = ()=>{
     if(!localStorage.getItem("access") || localStorage.getItem("account_type")=="Security"){
@@ -43,7 +46,13 @@ function create_new_user(event) {
         return response.json(); 
     })
     .then(data => {
-        alert(data.message || "User created successfully!");
+        
+        message_box.style.display = "block"
+        message_content.innerHTML = data.message
+        setTimeout(()=>{
+            message_box.style.display = "none"
+        }, 4000)
+
         console.log("Response Data:", data);
         window.location.reload()
     })

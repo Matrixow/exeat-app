@@ -4,6 +4,8 @@ window.onload = () => {
     }
 }
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
     let fetcher = document.querySelector("#get_exeats");
     let loading_gif = document.querySelector("#loading_gif");
@@ -33,6 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let exeatData = [];
 
 
+    let message_box = document.querySelector(".message-box")
+    let message_content = document.querySelector("#message-content")
+
+
     
 
     function get_exeats() {
@@ -57,7 +63,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 loading_gif.setAttribute("src", "../images/done.svg");
                 total.innerHTML = `Total exeats: ${exeatData.length}`
                 applyFilters(); 
-                applyFilters(); 
+                applyFilters();
+
+            message_box.style.display = "block"
+            message_content.innerHTML = data.message
+            setTimeout(()=>{
+                message_box.style.display = "none"
+            }, 4000)
             })
             .catch(err => {
                 console.log("An error occurred: " + err);
@@ -169,8 +181,12 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(res => res.json())
         .then(data => {
-            alert(data.message);
             loading_gif.setAttribute("src", '../images/done.svg');
+            message_box.style.display = "block"
+            message_content.innerHTML = data.message
+            setTimeout(()=>{
+                message_box.style.display = "none"
+            }, 4000)
         })
         .catch(err => {
             console.error("An error occurred:", err);

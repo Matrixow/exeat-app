@@ -13,15 +13,20 @@
             <li id="left_side_on_nav"></li>
         </ul>
     </nav>
+
+    <div class="message-box">
+        <p id="message-content">Message info more info to check adding more and more info</p>
+    </div>
+
     <div class="content">
         <div class="current_exeats">
             <h1>Exeat</h1>
             <form action="http://localhost:5000/owass-robotech/us-central1/app/give" method="post" id="form">
-                <label for="studentName">Student name:</label>
+                <label for="student_name">Student name:</label>
                 <input type="text" id="student_name" name="student_name" required>
 
-                <label for="schoolNumber">School Number:</label>
-                <input type="text" id="sch_number" name="school_number" required>
+                <label for="school_num">School Number:</label>
+                <input type="text" id="sch_number" name="school_num" required>
 
                 <select name="house_name" id="student_house" required>
                     <option selected>Select student's house</option>
@@ -42,7 +47,7 @@
                 <label for="reason">Reason for exeat:</label>
                 <textarea id="exreason" name="reason" cols="10" rows="5" required></textarea>
 
-                <label for="date">Date:</label>
+                <label for="return_date">Date:</label>
                 <input type="date" id="return_date" name="return_date" required>
                 <input name="given_by" id="hidden">
                 <button id="upload">Upload Exeat</button>

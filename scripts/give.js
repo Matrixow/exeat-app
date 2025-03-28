@@ -1,6 +1,10 @@
 let year = document.querySelector("#year")
 const thisYear = new Date().getFullYear()
 year.textContent = `© ${thisYear} OWASSROBOTECH.`
+let message_box = document.querySelector(".message-box")
+let message_content = document.querySelector("#message-content")
+
+
 
 function check_session(){
     if(!localStorage.getItem("access")){
@@ -62,16 +66,24 @@ function give_exeat(event){
             returndate:returndate.value
         })
     }).then(res=>{
-        if(res.ok){
+
+        if(res.status === 401){
+             window.location.href = "/pages/login.html"
+             loading_img.setAttribute("src", "../images/error.png")
+        }
+
+        else{
             return res.json()
         }
-        else{
-            window.location.href = "/pages/login.html"
-        }
-        loading_img.setAttribute("src", "../images/error.png")
+
 
     }).then(data=>{
         loading_img.setAttribute("src", "../images/done.svg")
+        message_box.style.display = "block"
+        message_content.innerHTML = data.message;
+        setTimeout(()=>{
+        message_box.style.display = "none"
+            }, 4000)
         console.log('done');
         
     })
