@@ -49,7 +49,6 @@ function login(event) {
           localStorage.setItem("account_type", data.acc_type);
           localStorage.setItem("user_name", data.user_name);
           localStorage.setItem("token", data.token)
-          console.log(data.token)
           window.location.href = data.redirect_page
         }
     })

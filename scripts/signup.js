@@ -23,7 +23,7 @@ function create_new_user(event) {
         return;
     }
 
-    console.log([username.value, account_type.value, password.value]);
+
     let token = localStorage.getItem("token")
     fetch("https://exapp-ten.vercel.app/signup", {
         method: 'POST',
@@ -53,7 +53,6 @@ function create_new_user(event) {
             message_box.style.display = "none"
         }, 4000)
 
-        console.log("Response Data:", data);
         window.location.reload()
     })
     .catch(error => {

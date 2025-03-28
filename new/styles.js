@@ -6,7 +6,7 @@ function check_session(){
 
 document.querySelector("#hidden").value = localStorage.getItem("user_name");
 
-console.log(document.querySelector("#hidden"));
+
 
 let account_name = localStorage.getItem("user_name");
 let account_name_element = document.querySelector("#account_name");

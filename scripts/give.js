@@ -14,7 +14,7 @@ function check_session(){
 
 document.querySelector("#left_side_on_nav").textContent = localStorage.getItem("user_name")
 
-console.log(document.querySelector("#left_side_on_nav"));
+
 
 let account_name = document.querySelector("#left_side_on_nav").textContent
 account_name.textContent = localStorage.getItem("user_name")
@@ -95,7 +95,7 @@ function give_exeat(event){
 }
 submitter.addEventListener("click", give_exeat)
 logout_button.addEventListener("click", ()=>{
-    console.log('clicked');
+
     
     localStorage.clear()
     location.reload()

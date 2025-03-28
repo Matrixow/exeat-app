@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
             .then(res => {
-                console.log(res.status)
+
                 if (!res.ok) {
                     
                     window.location.href = "/pages/login.html"
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 
             })
-            console.log(filteredData)
+
         }
 
 
