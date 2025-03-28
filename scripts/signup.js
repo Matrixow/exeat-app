@@ -53,7 +53,6 @@ function create_new_user(event) {
             message_box.style.display = "none"
         }, 4000)
 
-        window.location.reload()
     })
     .catch(error => {
         console.error("Error:", error);

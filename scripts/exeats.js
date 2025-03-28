@@ -65,15 +65,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 applyFilters(); 
                 applyFilters();
 
-            message_box.style.display = "block"
-            message_content.innerHTML = data.message
-            setTimeout(()=>{
-                message_box.style.display = "none"
-            }, 4000)
             })
             .catch(err => {
                 console.log("An error occurred: " + err);
                 loading_gif.setAttribute("src", "../images/error.png");
+                message_box.style.display = "block"
+                message_box.style.background = 'red'
+                message_content.innerHTML = data.message
+                setTimeout(()=>{
+                    message_box.style.display = "none"
+                }, 4000)
             });
     }
 
@@ -169,27 +170,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function modify_exeat(event) {
         loading_gif.setAttribute("src", '/images/loading2.gif');
-
+        let token = localStorage.getItem("token")
         const docId = event.target.getAttribute("data-id");
 
-        fetch(`http://localhost:4040/`, {
+        fetch(`http://localhost:4040/modify`, {
             method: 'PUT',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                Authorization : `BEARER ${token}`
             },
             body: JSON.stringify({ detail: docId, hasreturned: true })
         })
-        .then(res => res.json())
+        .then(res => {
+            if(res.ok){
+                return res.json()
+            }
+            else{
+                res.json().then(error=>{throw new Error(error.message)})
+            }
+        }
+            )
         .then(data => {
             loading_gif.setAttribute("src", '../images/done.svg');
             message_box.style.display = "block"
             message_content.innerHTML = data.message
             setTimeout(()=>{
                 message_box.style.display = "none"
-            }, 4000)
+            }, 5000)
         })
         .catch(err => {
             console.error("An error occurred:", err);
+            message_box.style.display = "block"
+            message_box.style.background = "red"
+            message_content.innerHTML = data.message
+            setTimeout(()=>{
+                message_box.style.display = "none"
+            }, 5000)
             loading_gif.setAttribute("src", '../images/error.png');
         });
     }
